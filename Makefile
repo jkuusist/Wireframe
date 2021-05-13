@@ -1,4 +1,4 @@
-OBJS = main.cpp draw_line.cpp
+OBJS = main.cpp draw_line.cpp handle_input.c
 
 CC = g++
 

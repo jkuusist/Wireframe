@@ -1,9 +1,11 @@
 #include "wireframe.h"
 #include <SDL2/SDL.h>
 #include <stdio.h>
+#include <vector>
 
 SDL_Window *g_window = NULL;
 SDL_Renderer *g_renderer = NULL;
+
 
 bool init()
 {
@@ -40,7 +42,6 @@ bool init()
 	}
 
 	return (success);
-
 }
 
 void close()
@@ -54,44 +55,12 @@ void close()
 	SDL_Quit();
 }
 
+
 int main(int argc, char *args[])
 {
-/*
-	//DOWN RIGHT
-	t_point start = {0, 0};
-	t_point end = {50, 50};
+	std::vector<t_point> points;
 
-	//UP LEFT
-	t_point start = {50, 50};
-	t_point end = {0, 0};
-
-	//UP RIGHT	
-	t_point start = {0, 50};
-	t_point end = {50, 0};
-
-	//DOWN LEFT	
-	t_point start = {50, 0};
-	t_point end = {0, 50};
-
-*/
-/*
-	//HORIZONTAL RIGHT
-	t_point start = {0, 50};
-	t_point end = {100, 50};
-
-	//HORIZONTAL LEFT
-	t_point start = {100, 50};
-	t_point end = {0, 50};
-*/
-/*
-	//VERTICAL DOWN
-	t_point start = {50, 0};
-	t_point end = {50, 100};
-*/
-	//VERTICAL UP
-	t_point start = {50, 100};
-	t_point end = {50, 0};
-
+	points = handle_input(argc, args);
 
 	if (!init())
 	{
@@ -99,7 +68,6 @@ int main(int argc, char *args[])
 	}
 	else
 	{
-
 		bool quit = false;
 		SDL_Event e;
 
@@ -115,8 +83,7 @@ int main(int argc, char *args[])
 				}
 			}
 
-			draw_line(start, end, g_renderer);
-//			draw_line(end, start2, g_renderer);
+			//DRAW STUFF HERE
 		}
 	}
 
