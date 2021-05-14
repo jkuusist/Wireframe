@@ -14,7 +14,7 @@ typedef struct	s_point
 	int z;
 }				t_point;
 
-void					draw_line(t_point start, t_point end, SDL_Renderer *renderer);
-std::vector<t_point>	handle_input(int argc, char *args[]);
+void								draw_line(t_point start, t_point end, SDL_Renderer *renderer);
+std::vector<std::vector<t_point>>	handle_input(int argc, char *args[]);
 
 #endif

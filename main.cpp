@@ -58,7 +58,7 @@ void close()
 
 int main(int argc, char *args[])
 {
-	std::vector<t_point> points;
+	std::vector<std::vector<t_point>> points;
 
 	points = handle_input(argc, args);
 
@@ -83,7 +83,7 @@ int main(int argc, char *args[])
 				}
 			}
 
-			//DRAW STUFF HERE
+			SDL_RenderPresent(g_renderer);
 		}
 	}
 

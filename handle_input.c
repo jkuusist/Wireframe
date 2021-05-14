@@ -7,9 +7,9 @@
 #include <cstdlib>
 #include <sstream>
 
-std::vector<t_point> handle_input(int argc, char *args[])
+std::vector<std::vector<t_point>> handle_input(int argc, char *args[])
 {
-	std::vector<t_point> points;
+	std::vector<std::vector<t_point>> points;
 	std::ifstream	input_file;
 	int				x = 0;
 	int				y = 0;
@@ -24,6 +24,8 @@ std::vector<t_point> handle_input(int argc, char *args[])
 	{
 		for (std::string line; getline(input_file, line);)
 		{
+			std::vector<t_point> row;
+
 			std::stringstream line_stream(line);
 
 			x = 0;
@@ -37,12 +39,14 @@ std::vector<t_point> handle_input(int argc, char *args[])
 				if (!line_stream)
 					break;
 
-				current = {x, y, z};
+				current = {x * 10, y * 10, z * 10};
 
-				points.push_back(current);
+				row.push_back(current);
+//				points.push_back(current);
 
 				x++;
 			}
+			points.push_back(row);
 
 			y++;
 		}

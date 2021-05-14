@@ -29,8 +29,6 @@ void draw_line(t_point start, t_point end, SDL_Renderer *renderer)
 				SDL_RenderDrawPoint(renderer, x, y);
 				p = p + 2 * delta_y;
 			}
-
-			SDL_RenderPresent(renderer);
 		}
 	}
 	else if (x == end.x)
@@ -48,8 +46,6 @@ void draw_line(t_point start, t_point end, SDL_Renderer *renderer)
 				SDL_RenderDrawPoint(renderer, x, y);
 				p = p + 2 * delta_y;
 			}
-
-			SDL_RenderPresent(renderer);
 		}
 	}
 	else if (x < end.x)
@@ -67,8 +63,6 @@ void draw_line(t_point start, t_point end, SDL_Renderer *renderer)
 				SDL_RenderDrawPoint(renderer, x, y);
 				p = p + 2 * delta_y;
 			}
-
-			SDL_RenderPresent(renderer);
 
 			x += x_sign;
 		}
@@ -88,8 +82,6 @@ void draw_line(t_point start, t_point end, SDL_Renderer *renderer)
 				SDL_RenderDrawPoint(renderer, x, y);
 				p = p + 2 * delta_y;
 			}
-
-			SDL_RenderPresent(renderer);
 
 			x += x_sign;
 		}
