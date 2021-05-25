@@ -6,7 +6,6 @@
 SDL_Window *g_window = NULL;
 SDL_Renderer *g_renderer = NULL;
 
-
 bool init()
 {
 	bool success = true;
@@ -59,8 +58,11 @@ void close()
 int main(int argc, char *args[])
 {
 	std::vector<std::vector<t_point>> points;
+	std::vector<std::vector<t_int_point>> raster_points;
 
 	points = handle_input(argc, args);
+
+	raster_points = convert_coordinates(points);
 
 	if (!init())
 	{
@@ -80,6 +82,18 @@ int main(int argc, char *args[])
 				if (e.type == SDL_QUIT)
 				{
 					quit = true;
+				}
+			}
+
+			for (int i = 0; i < raster_points.size(); i++)
+			{
+				for (int j = 0; j < raster_points[i].size(); j++)
+				{
+					if (j != raster_points[i].size() - 1)
+						draw_line(raster_points[i][j], raster_points[i][j + 1], g_renderer);
+
+					if (i < raster_points.size() - 1)
+						draw_line(raster_points[i][j], raster_points[i + 1][j], g_renderer);
 				}
 			}
 

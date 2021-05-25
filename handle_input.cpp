@@ -11,8 +11,8 @@ std::vector<std::vector<t_point>> handle_input(int argc, char *args[])
 {
 	std::vector<std::vector<t_point>> points;
 	std::ifstream	input_file;
-	int				x = 0;
-	int				y = 0;
+	float			x = 0.0;
+	float			z = 0.0;
 	t_point			current;
 
 	if (argc != 2)
@@ -32,23 +32,22 @@ std::vector<std::vector<t_point>> handle_input(int argc, char *args[])
 
 			while (true)
 			{
-				int z;
+				float y;
 
-				line_stream >> z;
+				line_stream >> y;
 
 				if (!line_stream)
 					break;
 
-				current = {x * 10, y * 10, z * 10};
+				current = {x * 10, z * 10, y * 10};
 
 				row.push_back(current);
-//				points.push_back(current);
 
-				x++;
+				x += 1.0;
 			}
 			points.push_back(row);
 
-			y++;
+			z += 1.0;
 		}
 	}
 	
