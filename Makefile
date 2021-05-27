@@ -1,4 +1,4 @@
-OBJS = main.cpp draw_line.cpp handle_input.cpp convert_coordinates.cpp
+OBJS = main.cpp draw_line.cpp handle_input.cpp convert_coordinates.cpp multiply_point_matrix.cpp
 
 CC = g++
 
