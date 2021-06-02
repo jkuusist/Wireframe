@@ -88,4 +88,6 @@ void draw_line(t_int_point start, t_int_point end, SDL_Renderer *renderer)
 			x += x_sign;
 		}
 	}
+
+	SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 }

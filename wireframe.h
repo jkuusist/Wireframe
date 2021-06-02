@@ -4,8 +4,8 @@
 #include <SDL2/SDL.h>
 #include <vector>
 
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 480
+#define SCREEN_WIDTH 1280
+#define SCREEN_HEIGHT 960
 
 typedef struct	s_point
 {
@@ -20,6 +20,13 @@ typedef struct	s_int_point
 	int y;
 	int z;
 }				t_int_point;
+
+typedef struct 	s_camera
+{
+	float	x_rotation;
+	float	y_rotation;
+	float	z_rotation;
+}				t_camera;
 
 class matrix44
 {
@@ -169,5 +176,7 @@ void								draw_line(t_int_point start, t_int_point end, SDL_Renderer *renderer
 std::vector<std::vector<t_point>>	handle_input(int argc, char *args[]);
 std::vector<std::vector<t_int_point>> convert_coordinates(std::vector<std::vector<t_point>> points);
 void multiply_point_matrix(t_point *point, matrix44 matrix);
+void rotate_point(t_int_point *point, t_camera *camera);
+void mouse_rotation(t_camera *camera);
 
 #endif

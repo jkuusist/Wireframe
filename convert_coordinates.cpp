@@ -26,8 +26,9 @@ std::vector<std::vector<t_int_point>> convert_coordinates(std::vector<std::vecto
 			multiply_point_matrix(&temp, second_rot);
 			multiply_point_matrix(&temp, xy_projection);
 
-			temp.x += SCREEN_WIDTH / 2;
-			temp.y += SCREEN_HEIGHT / 2;
+
+			temp.x += (SCREEN_WIDTH / 2);
+			temp.y += (SCREEN_HEIGHT / 2);
 
 			new_point = {static_cast<int>(temp.x), static_cast<int>(temp.y), static_cast<int>(temp.z)};
 			new_row.push_back(new_point);

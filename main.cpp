@@ -59,6 +59,7 @@ int main(int argc, char *args[])
 {
 	std::vector<std::vector<t_point>> points;
 	std::vector<std::vector<t_int_point>> raster_points;
+	t_camera camera = {0, 0, 0};
 
 	points = handle_input(argc, args);
 
@@ -83,7 +84,21 @@ int main(int argc, char *args[])
 				{
 					quit = true;
 				}
+				else if (e.type == SDL_MOUSEBUTTONDOWN)
+				{
+					mouse_rotation(&camera);
+
+					for (int i = 0; i < raster_points.size(); i++)
+					{
+						for (int j = 0; j < raster_points[i].size(); j++)
+						{
+							rotate_point(&raster_points[i][j], &camera);
+						}
+					}
+				}
 			}
+
+			SDL_RenderClear(g_renderer);
 
 			for (int i = 0; i < raster_points.size(); i++)
 			{
