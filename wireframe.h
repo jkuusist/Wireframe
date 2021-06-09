@@ -26,6 +26,7 @@ typedef struct 	s_camera
 	float	x_rotation;
 	float	y_rotation;
 	float	z_rotation;
+	int	zoom;
 }				t_camera;
 
 class matrix44
@@ -172,9 +173,9 @@ public:
 	}
 };
 
-void								draw_line(t_int_point start, t_int_point end, SDL_Renderer *renderer);
+void	draw_line(t_int_point start, t_int_point end, SDL_Renderer *renderer);
 std::vector<std::vector<t_point>>	handle_input(int argc, char *args[]);
-std::vector<std::vector<t_int_point>> convert_coordinates(std::vector<std::vector<t_point>> points);
+std::vector<std::vector<t_int_point>> convert_coordinates(std::vector<std::vector<t_point>> points, t_camera *camera);
 void multiply_point_matrix(t_point *point, matrix44 matrix);
 void rotate_point(t_int_point *point, t_camera *camera);
 void mouse_rotation(t_camera *camera);

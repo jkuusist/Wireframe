@@ -2,7 +2,7 @@
 #include <cmath>
 #include <stdio.h>
 
-std::vector<std::vector<t_int_point>> convert_coordinates(std::vector<std::vector<t_point>> points)
+std::vector<std::vector<t_int_point>> convert_coordinates(std::vector<std::vector<t_point>> points, t_camera *camera)
 {
 	std::vector<std::vector<t_int_point>> new_points;
 	t_point temp;
@@ -21,6 +21,9 @@ std::vector<std::vector<t_int_point>> convert_coordinates(std::vector<std::vecto
 		for (int j = 0; j < points[i].size(); j++)
 		{
 			temp = {points[i][j].x, points[i][j].y, points[i][j].z};
+
+			temp.x *= camera->zoom;
+			temp.y *= camera->zoom;
 
 			multiply_point_matrix(&temp, first_rot);
 			multiply_point_matrix(&temp, second_rot);

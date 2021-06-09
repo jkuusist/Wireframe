@@ -1,7 +1,7 @@
 #include "wireframe.h"
 #include <SDL2/SDL.h>
 
-void mouse_rotation(t_camera *camera) //, std::vector<std::vector<t_int_point>> points)
+void mouse_rotation(t_camera *camera)
 {
 	SDL_Event e;
 	int start_x;

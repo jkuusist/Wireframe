@@ -39,7 +39,7 @@ std::vector<std::vector<t_point>> handle_input(int argc, char *args[])
 				if (!line_stream)
 					break;
 
-				current = {x * 10, y * 10, z * 10};
+				current = {x, y, -z};
 
 				row.push_back(current);
 

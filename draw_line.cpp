@@ -2,8 +2,6 @@
 #include <SDL2/SDL.h>
 #include <stdlib.h>
 
-#include <stdio.h>
-
 void draw_line(t_int_point start, t_int_point end, SDL_Renderer *renderer)
 {
 	int delta_y = abs(end.y - start.y);

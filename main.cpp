@@ -59,11 +59,9 @@ int main(int argc, char *args[])
 {
 	std::vector<std::vector<t_point>> points;
 	std::vector<std::vector<t_int_point>> raster_points;
-	t_camera camera = {0, 0, 0};
+	t_camera camera = {0, 0, 0, 10};
 
 	points = handle_input(argc, args);
-
-	raster_points = convert_coordinates(points);
 
 	if (!init())
 	{
@@ -84,6 +82,14 @@ int main(int argc, char *args[])
 				{
 					quit = true;
 				}
+				else if (e.type == SDL_MOUSEWHEEL)
+				{
+					camera.zoom += e.wheel.y;
+
+					raster_points.clear();
+
+					raster_points = convert_coordinates(points, &camera);
+				}
 				else if (e.type == SDL_MOUSEBUTTONDOWN)
 				{
 					mouse_rotation(&camera);
@@ -97,6 +103,8 @@ int main(int argc, char *args[])
 					}
 				}
 			}
+
+			raster_points = convert_coordinates(points, &camera);
 
 			SDL_RenderClear(g_renderer);
 
